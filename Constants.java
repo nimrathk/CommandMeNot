@@ -22,13 +22,14 @@ public final class Constants {
     public static final int kRightFrontMotorPort = 5;
     public static final int kLeftBackMotorPort = 3;
     public static final int kRightBackMotorPort = 2;
+
     public static final int kLeftEncoderChannelA = 0;
     public static final int kLeftEncoderChannelB = 1;
     public static final int kRightEncoderChannelA = 2;
     public static final int kRightEncoderChannelB = 3;
-    public static final double kEncoderTick2Meter = 1.0 / 4096.0 * 0.128 * Math.PI;
+    public static final double kEncoderTick2Feet = 1.0 / 2048.0 * Math.PI * 9 / 17.8;
 
-    public static final double kAutoDriveForwardSpeed = 0.5;
-    public static final double kAutoDriveForwardDistance = 1.5;
-}
+    public static final double kAutoDriveForwardSpeed = -0.5;
+    public static final double kAutoDriveForwardDistance = 3;
+  }
 }
