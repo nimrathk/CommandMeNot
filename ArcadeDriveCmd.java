@@ -16,9 +16,10 @@ public class ArcadeDriveCmd extends CommandBase {
   private final Supplier<Double> leftSpeedFunction, rightSpeedFunction;
 
   /**
-   * Creates a new ExampleCommand.
+   * Creates a new ArcadeDriveCmd.
    *
-   * @param subsystem The subsystem used by this command.
+   * @param driveSubsystem the driving subsystem.
+   *
    */
   public ArcadeDriveCmd(DriveSubsystem driveSubsystem, Supplier<Double> leftSpeedFunction, Supplier<Double> rightSpeedFunction) {
     this.driveSubsystem = driveSubsystem;
