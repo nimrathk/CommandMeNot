@@ -5,10 +5,14 @@
 package frc.robot;
 
 import frc.robot.Constants.DriveConstants;
+import frc.robot.commands.DriveForwardCmd;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ArcadeDriveCmd;
 import frc.robot.subsystems.DriveSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+
 // import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 // import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj.XboxController;
@@ -29,7 +33,7 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
-    driveSubsystem.setDefaultCommand(new ArcadeDriveCmd(driveSubsystem, () -> m_stickDrive.getLeftY(), () -> m_stickDrive.getLeftX()));
+    driveSubsystem.setDefaultCommand(new ArcadeDriveCmd(driveSubsystem, () -> m_stickDrive.getLeftX(), () -> m_stickDrive.getLeftY()));
   }
 
   /**
@@ -49,9 +53,9 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  // public Command getAutonomousCommand() {
-  //   // An example command will be run in autonomous
-  //   // return Autos.exampleAuto(driveSubsystem);
-    
-  // }
+  public Command getAutonomousCommand() {
+    // An example command will be run in autonomous
+    return new SequentialCommandGroup(new DriveForwardCmd(driveSubsystem, DriveConstants.kAutoDriveForwardDistance));
+
+  }
 }
